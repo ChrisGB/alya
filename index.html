@@ -10,6 +10,7 @@
     :root {
       --bg-main: #f5f7fb;
       --bg-alt: #ffffff;
+      --bg-band: #e3ebf7;
       --primary: #00b9c8;
       --primary-soft: rgba(0, 185, 200, 0.12);
       --accent: #0b3c6d;
@@ -17,11 +18,11 @@
       --text-muted: #64708a;
       --border-subtle: #dde2ee;
       --danger: #ff4d6a;
-      --radius-lg: 18px;
-      --radius-md: 12px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
       --radius-pill: 999px;
-      --shadow-soft: 0 16px 40px rgba(11, 33, 70, 0.12);
-      --shadow-chip: 0 8px 22px rgba(15, 34, 70, 0.12);
+      --shadow-soft: 0 18px 45px rgba(11, 33, 70, 0.16);
+      --shadow-chip: 0 10px 26px rgba(15, 34, 70, 0.16);
     }
 
     * {
@@ -57,7 +58,7 @@
       width: 100%;
       max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 20px 60px;
+      padding: 24px 20px 64px;
     }
 
     /* HEADER */
@@ -81,16 +82,16 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
     .brand-logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      padding: 4px;
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      padding: 6px;
       background: #ffffff;
-      box-shadow: 0 10px 26px rgba(15, 34, 70, 0.18);
+      box-shadow: 0 14px 32px rgba(15, 34, 70, 0.22);
       overflow: hidden;
     }
 
@@ -103,14 +104,14 @@
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 4px;
     }
 
     .brand-name {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 650;
+      font-weight: 700;
       color: var(--accent);
     }
 
@@ -124,7 +125,7 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 22px;
       font-size: 0.9rem;
     }
 
@@ -147,7 +148,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 20px;
+      padding: 11px 22px;
       border-radius: var(--radius-pill);
       border: 1px solid transparent;
       font-size: 0.9rem;
@@ -168,7 +169,7 @@
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 45px rgba(11, 33, 70, 0.25);
+      box-shadow: 0 24px 52px rgba(11, 33, 70, 0.28);
     }
 
     .btn-ghost {
@@ -187,6 +188,22 @@
       flex: 1;
     }
 
+    /* GLOBAL SECTION WRAPPERS */
+
+    section.section-band {
+      background: var(--bg-band);
+    }
+
+    section.section-band .container {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    section.section-plain .container {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
     /* HERO */
 
     .hero {
@@ -197,7 +214,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
-      gap: 36px;
+      gap: 40px;
       align-items: center;
     }
 
@@ -225,9 +242,9 @@
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
-      line-height: 1.1;
-      margin-bottom: 12px;
+      font-size: clamp(2.2rem, 3.2vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
       color: var(--accent);
     }
 
@@ -238,7 +255,7 @@
     .hero-subtitle {
       font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 540px;
       line-height: 1.6;
       margin-bottom: 22px;
     }
@@ -288,12 +305,12 @@
       background: var(--primary);
     }
 
-    /* HERO CARD RIGHT */
+    /* HERO RIGHT CARD */
 
     .hero-card {
       background: var(--bg-alt);
-      border-radius: 24px;
-      padding: 20px 20px 18px;
+      border-radius: 26px;
+      padding: 26px 24px 22px;
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-soft);
       position: relative;
@@ -312,8 +329,8 @@
     }
 
     .logo-large img {
-      width: 150px;
-      height: 150px;
+      width: 190px;
+      height: 190px;
       object-fit: contain;
     }
 
@@ -329,7 +346,7 @@
     .hero-card-main {
       text-align: center;
       font-size: 1.05rem;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       color: var(--accent);
     }
 
@@ -340,20 +357,20 @@
     .hero-card-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
-      margin: 14px 0;
+      margin: 16px 0;
     }
 
     .hero-stats {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 16px;
+      gap: 16px;
+      margin-bottom: 20px;
       font-size: 0.8rem;
     }
 
     .stat {
       flex: 1;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
       background: #fbfcff;
@@ -405,14 +422,9 @@
 
     /* SECTIONS */
 
-    section {
-      padding: 36px 0;
-      border-top: 1px solid rgba(221, 226, 238, 0.8);
-    }
-
     .section-header {
-      max-width: 620px;
-      margin-bottom: 24px;
+      max-width: 680px;
+      margin-bottom: 28px;
     }
 
     .section-kicker {
@@ -424,7 +436,7 @@
     }
 
     .section-title {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 6px;
       color: var(--accent);
     }
@@ -439,26 +451,26 @@
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 22px;
     }
 
     .benefit {
-      padding: 14px 14px 16px;
+      padding: 18px 18px 20px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
       background: var(--bg-alt);
       box-shadow: var(--shadow-soft);
-      font-size: 0.85rem;
+      font-size: 0.86rem;
     }
 
     .benefit-icon {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #ffffff;
       font-size: 0.78rem;
@@ -467,59 +479,112 @@
 
     .benefit-title {
       font-weight: 550;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: var(--accent);
     }
 
     .benefit-text {
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
+    }
+
+    /* IMAGE ZONES */
+
+    .image-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .image-placeholder {
+      border-radius: 18px;
+      border: 1px dashed var(--border-subtle);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
     }
 
     /* SERVICES */
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      font-size: 0.84rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      font-size: 0.86rem;
     }
 
     .service {
-      padding: 14px;
-      border-radius: var(--radius-md);
+      padding: 24px 20px 22px;
+      border-radius: 24px;
       border: 1px solid var(--border-subtle);
       background: var(--bg-alt);
       box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .service-thumb {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      margin: 0 auto 14px;
+      background: #f5f8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.8rem;
     }
 
     .service-name {
-      font-weight: 550;
-      margin-bottom: 6px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1rem;
       color: var(--accent);
     }
 
     .service-text {
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 14px;
     }
 
-    /* PROCESS */
+    .service-cta {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #ff6f6f;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 550;
+      cursor: pointer;
+    }
+
+    /* PROCESS – BIG BOXES */
 
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      font-size: 0.84rem;
+      gap: 22px;
+      font-size: 0.86rem;
     }
 
     .step {
-      padding: 14px;
-      border-radius: var(--radius-md);
+      padding: 22px 18px 20px;
+      border-radius: 24px;
       border: 1px solid var(--border-subtle);
       background: var(--bg-alt);
       box-shadow: var(--shadow-soft);
-      position: relative;
+      text-align: left;
     }
 
     .step-number {
@@ -531,34 +596,35 @@
     }
 
     .step-title {
-      font-weight: 550;
-      margin-bottom: 4px;
+      font-weight: 600;
+      margin-bottom: 8px;
       color: var(--accent);
+      font-size: 0.98rem;
     }
 
     .step-text {
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* CONTACT / CTA SECTION */
 
     .contact-card {
-      margin-top: 8px;
-      padding: 18px 18px 16px;
-      border-radius: 22px;
+      margin-top: 12px;
+      padding: 22px 20px 18px;
+      border-radius: 24px;
       border: 1px solid rgba(0,185,200,0.4);
       background: #ffffff;
       box-shadow: 0 24px 70px rgba(11, 33, 70, 0.16);
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
+      gap: 20px;
       align-items: center;
     }
 
     .contact-left-title {
       font-size: 1.05rem;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: var(--accent);
     }
 
@@ -678,11 +744,12 @@
         order: -1;
       }
 
-      .benefits-grid {
+      .benefits-grid,
+      .services-grid,
+      .image-band {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .services-grid,
       .process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -707,7 +774,8 @@
     @media (max-width: 640px) {
       .benefits-grid,
       .services-grid,
-      .process-grid {
+      .process-grid,
+      .image-band {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -723,6 +791,11 @@
         flex-direction: column;
         align-items: stretch;
       }
+
+      .brand-logo {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
@@ -732,7 +805,6 @@
       <div class="container header-inner">
         <div class="brand">
           <div class="brand-logo">
-            <!-- IMPORTANT : mets ici le vrai nom de ton fichier logo -->
             <img src="alya-logo.png" alt="Logo ALYA" />
           </div>
           <div class="brand-text">
@@ -755,7 +827,7 @@
 
     <main>
       <!-- HERO -->
-      <section class="hero">
+      <section class="hero section-plain">
         <div class="container hero-grid">
           <div>
             <div class="badge">
@@ -834,8 +906,33 @@
         </div>
       </section>
 
-      <!-- BENEFITS / POURQUOI ALYA -->
-      <section id="benefits">
+      <!-- BANDE IMAGES PRESENTATION -->
+      <section class="section-band">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Alya en images</div>
+            <h2 class="section-title">Une équipe dédiée à vos performances commerciales.</h2>
+            <p class="section-desc">
+              Vous pourrez ici présenter votre plateau, votre équipe et votre environnement de travail pour rassurer vos prospects sur la qualité de votre dispositif.
+            </p>
+          </div>
+
+          <div class="image-band">
+            <div class="image-placeholder">
+              Zone image 1 – Photo du plateau d’appels ou de l’équipe.
+            </div>
+            <div class="image-placeholder">
+              Zone image 2 – Photo d’un poste agent / technologie / écrans.
+            </div>
+            <div class="image-placeholder">
+              Zone image 3 – Photo du dirigeant ou duo fondateur.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POURQUOI ALYA -->
+      <section id="benefits" class="section-plain">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Pourquoi ALYA</div>
@@ -897,8 +994,8 @@
         </div>
       </section>
 
-      <!-- SERVICES / SOLUTIONS -->
-      <section id="services">
+      <!-- SERVICES / SOLUTIONS – GROSSES BOX -->
+      <section id="services" class="section-band">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Nos solutions</div>
@@ -910,38 +1007,37 @@
 
           <div class="services-grid">
             <div class="service">
+              <div class="service-thumb">📞</div>
               <div class="service-name">Prospection & prise de rendez‑vous</div>
               <div class="service-text">
-                Identification et qualification de nouvelles opportunités sur vos marchés cibles, prise de rendez‑vous pour vos commerciaux terrain ou vos équipes internes, avec des critères définis ensemble.
+                Identification et qualification de nouvelles opportunités sur vos marchés cibles, prise de rendez‑vous pour vos commerciaux terrain ou vos équipes internes.
               </div>
+              <button class="service-cta">Découvrir cette solution</button>
             </div>
 
             <div class="service">
+              <div class="service-thumb">🔁</div>
               <div class="service-name">Relance de leads & de devis</div>
               <div class="service-text">
                 Relance structurée des leads entrants, formulaires web, téléchargements et devis en attente pour accélérer vos décisions et sécuriser des ventes supplémentaires.
               </div>
+              <button class="service-cta">Découvrir cette solution</button>
             </div>
 
             <div class="service">
-              <div class="service-name">Fidélisation & réactivation</div>
+              <div class="service-thumb">🤝</div>
+              <div class="service-name">Fidélisation & recouvrement amiable</div>
               <div class="service-text">
-                Campagnes de suivi, enquêtes de satisfaction et réactivation des clients inactifs afin d’augmenter la valeur de chaque compte et réduire le churn.
+                Campagnes de suivi, réactivation de clients inactifs et recouvrement amiable pour augmenter la valeur de chaque compte tout en préservant la relation commerciale.
               </div>
-            </div>
-
-            <div class="service">
-              <div class="service-name">Recouvrement amiable</div>
-              <div class="service-text">
-                Relances téléphoniques respectueuses mais fermes pour réduire vos encours et accélérer vos encaissements, en préservant la relation commerciale.
-              </div>
+              <button class="service-cta">Découvrir cette solution</button>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ENGAGEMENTS -->
-      <section id="engagements">
+      <section id="engagements" class="section-plain">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Nos engagements</div>
@@ -1003,8 +1099,8 @@
         </div>
       </section>
 
-      <!-- PROCESS / METHODE -->
-      <section id="process">
+      <!-- PROCESS / METHODE – GROSSES BOX -->
+      <section id="process" class="section-band">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Notre méthode</div>
@@ -1051,7 +1147,7 @@
       </section>
 
       <!-- CONTACT / CTA -->
-      <section id="contact">
+      <section id="contact" class="section-plain">
         <div class="container">
           <div class="section-header">
             <div class="section-kicker">Nous contacter</div>
