@@ -8,20 +8,20 @@
 
   <style>
     :root {
-      --bg-main: #05070b;
-      --bg-alt: #0b1018;
-      --primary: #00e0d6;
-      --primary-soft: rgba(0, 224, 214, 0.18);
-      --accent: #2bb1ff;
-      --text-main: #f5f7fb;
-      --text-muted: #a4afc3;
-      --border-subtle: #182130;
+      --bg-main: #f5f7fb;
+      --bg-alt: #ffffff;
+      --primary: #00b9c8;
+      --primary-soft: rgba(0, 185, 200, 0.12);
+      --accent: #0b3c6d;
+      --text-main: #152033;
+      --text-muted: #64708a;
+      --border-subtle: #dde2ee;
       --danger: #ff4d6a;
       --radius-lg: 18px;
       --radius-md: 12px;
       --radius-pill: 999px;
-      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
-      --shadow-chip: 0 10px 30px rgba(0, 0, 0, 0.7);
+      --shadow-soft: 0 16px 40px rgba(11, 33, 70, 0.12);
+      --shadow-chip: 0 8px 22px rgba(15, 34, 70, 0.12);
     }
 
     * {
@@ -32,7 +32,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0c1724 0%, #05070b 55%, #020308 100%);
+      background: var(--bg-main);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -66,9 +66,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5,7,11,0.96) 60%, rgba(5,7,11,0.75) 100%);
-      border-bottom: 1px solid rgba(40, 55, 80, 0.65);
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .header-inner {
@@ -88,16 +88,16 @@
       width: 54px;
       height: 54px;
       border-radius: 16px;
-      padding: 6px;
-      background: radial-gradient(circle at 30% 0, #00f6ff 0, #0077ff 40%, #05070b 100%);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      padding: 4px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(15, 34, 70, 0.18);
       overflow: hidden;
     }
 
     .brand-logo img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .brand-text {
@@ -111,6 +111,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 650;
+      color: var(--accent);
     }
 
     .brand-tagline {
@@ -133,7 +134,7 @@
     }
 
     nav a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .nav-cta {
@@ -160,20 +161,20 @@
 
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #020308;
-      border-color: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      border-color: transparent;
       box-shadow: var(--shadow-soft);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 26px 70px rgba(0, 160, 200, 0.45);
+      box-shadow: 0 22px 45px rgba(11, 33, 70, 0.25);
     }
 
     .btn-ghost {
-      border-color: rgba(81, 103, 142, 0.8);
-      background: radial-gradient(circle at top, rgba(255,255,255,0.09), rgba(3,6,12,0.9));
-      color: var(--text-muted);
+      border-color: var(--border-subtle);
+      background: #ffffff;
+      color: var(--accent);
       box-shadow: var(--shadow-chip);
     }
 
@@ -182,11 +183,11 @@
       color: var(--primary);
     }
 
-    /* HERO */
-
     main {
       flex: 1;
     }
+
+    /* HERO */
 
     .hero {
       padding-top: 40px;
@@ -206,9 +207,9 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(0, 224, 214, 0.36);
-      background: radial-gradient(circle at top left, rgba(0, 224, 214, 0.15), rgba(5,7,11,0.92));
-      color: var(--primary);
+      border: 1px solid rgba(0, 185, 200, 0.3);
+      background: rgba(0, 185, 200, 0.06);
+      color: var(--accent);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -221,19 +222,17 @@
       height: 8px;
       border-radius: 999px;
       background: var(--primary);
-      box-shadow: 0 0 10px rgba(0, 224, 214, 0.7);
     }
 
     .hero-title {
       font-size: clamp(2.1rem, 3vw, 2.6rem);
       line-height: 1.1;
       margin-bottom: 12px;
+      color: var(--accent);
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--primary);
     }
 
     .hero-subtitle {
@@ -277,8 +276,8 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(45, 68, 104, 0.9);
-      background: rgba(6, 10, 18, 0.96);
+      border: 1px solid var(--border-subtle);
+      background: #ffffff;
       box-shadow: var(--shadow-chip);
     }
 
@@ -286,28 +285,19 @@
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: var(--accent);
+      background: var(--primary);
     }
 
     /* HERO CARD RIGHT */
 
     .hero-card {
-      background: radial-gradient(circle at top, #101a26, #05070b);
+      background: var(--bg-alt);
       border-radius: 24px;
       padding: 20px 20px 18px;
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -120px;
-      background: radial-gradient(circle at 10% -10%, rgba(0, 224, 214, 0.16), transparent 62%);
-      opacity: 1;
-      pointer-events: none;
     }
 
     .hero-card-inner {
@@ -322,15 +312,14 @@
     }
 
     .logo-large img {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       object-fit: contain;
-      filter: drop-shadow(0 28px 48px rgba(0, 224, 214, 0.45));
     }
 
     .hero-card-title {
       text-align: center;
-      font-size: 0.98rem;
+      font-size: 0.9rem;
       margin-bottom: 6px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -341,6 +330,7 @@
       text-align: center;
       font-size: 1.05rem;
       margin-bottom: 14px;
+      color: var(--accent);
     }
 
     .hero-card-main span {
@@ -349,7 +339,7 @@
 
     .hero-card-divider {
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(93, 117, 158, 0.8), transparent);
+      background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
       margin: 14px 0;
     }
 
@@ -365,8 +355,8 @@
       flex: 1;
       padding: 10px 12px;
       border-radius: var(--radius-md);
-      border: 1px solid rgba(63, 88, 132, 0.9);
-      background: linear-gradient(to bottom right, rgba(8,13,24,0.96), rgba(3,6,12,0.98));
+      border: 1px solid var(--border-subtle);
+      background: #fbfcff;
     }
 
     .stat-label {
@@ -377,6 +367,7 @@
     .stat-value {
       font-size: 0.95rem;
       font-weight: 550;
+      color: var(--accent);
     }
 
     .stat-value span {
@@ -406,16 +397,17 @@
       gap: 6px;
       padding: 8px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(0, 224, 214, 0.35);
+      border: 1px solid rgba(0,185,200,0.4);
       font-size: 0.72rem;
-      background: radial-gradient(circle at top left, rgba(0,224,214,0.16), rgba(5,7,11,0.96));
+      background: #f3fcfd;
+      color: var(--accent);
     }
 
     /* SECTIONS */
 
     section {
       padding: 36px 0;
-      border-top: 1px solid rgba(24, 33, 48, 0.9);
+      border-top: 1px solid rgba(221, 226, 238, 0.8);
     }
 
     .section-header {
@@ -434,6 +426,7 @@
     .section-title {
       font-size: 1.3rem;
       margin-bottom: 6px;
+      color: var(--accent);
     }
 
     .section-desc {
@@ -453,8 +446,8 @@
       padding: 14px 14px 16px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(255,255,255,0.03), rgba(5,7,11,0.98));
-      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      background: var(--bg-alt);
+      box-shadow: var(--shadow-soft);
       font-size: 0.85rem;
     }
 
@@ -466,15 +459,16 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 8px;
-      background: radial-gradient(circle at top, var(--primary), var(--accent));
-      color: #020308;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #ffffff;
       font-size: 0.78rem;
-      box-shadow: 0 12px 26px rgba(0, 224, 214, 0.5);
+      box-shadow: var(--shadow-chip);
     }
 
     .benefit-title {
       font-weight: 550;
       margin-bottom: 4px;
+      color: var(--accent);
     }
 
     .benefit-text {
@@ -495,13 +489,14 @@
       padding: 14px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(0, 224, 214, 0.06), rgba(5,7,11,0.98));
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+      background: var(--bg-alt);
+      box-shadow: var(--shadow-soft);
     }
 
     .service-name {
       font-weight: 550;
       margin-bottom: 6px;
+      color: var(--accent);
     }
 
     .service-text {
@@ -522,8 +517,8 @@
       padding: 14px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(255,255,255,0.03), rgba(5,7,11,0.98));
-      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      background: var(--bg-alt);
+      box-shadow: var(--shadow-soft);
       position: relative;
     }
 
@@ -538,6 +533,7 @@
     .step-title {
       font-weight: 550;
       margin-bottom: 4px;
+      color: var(--accent);
     }
 
     .step-text {
@@ -551,9 +547,9 @@
       margin-top: 8px;
       padding: 18px 18px 16px;
       border-radius: 22px;
-      border: 1px solid rgba(0,224,214,0.4);
-      background: radial-gradient(circle at top, rgba(0,224,214,0.14), rgba(5,7,11,0.98));
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(0,185,200,0.4);
+      background: #ffffff;
+      box-shadow: 0 24px 70px rgba(11, 33, 70, 0.16);
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 18px;
@@ -563,6 +559,7 @@
     .contact-left-title {
       font-size: 1.05rem;
       margin-bottom: 4px;
+      color: var(--accent);
     }
 
     .contact-left-text {
@@ -607,9 +604,9 @@
     }
 
     input, textarea {
-      background: rgba(3,6,12,0.96);
+      background: #f8f9fd;
       border-radius: 10px;
-      border: 1px solid rgba(61, 82, 122, 0.95);
+      border: 1px solid var(--border-subtle);
       padding: 8px 10px;
       color: var(--text-main);
       font-family: inherit;
@@ -620,8 +617,8 @@
 
     input:focus, textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(0, 224, 214, 0.6);
-      background: rgba(3,8,16,0.98);
+      box-shadow: 0 0 0 1px rgba(0, 185, 200, 0.4);
+      background: #ffffff;
     }
 
     textarea {
@@ -649,10 +646,11 @@
     /* FOOTER */
 
     footer {
-      border-top: 1px solid rgba(24, 33, 48, 0.9);
+      border-top: 1px solid var(--border-subtle);
       padding: 18px 0 28px;
       font-size: 0.78rem;
       color: var(--text-muted);
+      background: #ffffff;
     }
 
     .footer-inner {
@@ -734,8 +732,8 @@
       <div class="container header-inner">
         <div class="brand">
           <div class="brand-logo">
-            <!-- Remplace src par le chemin réel de ton image -->
-            <img src="ChatGPT-Image-6-mai-2026-14_50_36.jpg" alt="Logo ALYA" />
+            <!-- IMPORTANT : mets ici le vrai nom de ton fichier logo -->
+            <img src="alya-logo.png" alt="Logo ALYA" />
           </div>
           <div class="brand-text">
             <div class="brand-name">ALYA</div>
@@ -788,7 +786,7 @@
                 <span>Spécialisation : B2B et secteur automobile (grossistes, garagistes, fournisseurs).</span>
               </div>
               <div class="meta-chip">
-                <div class="meta-chip-dot" style="background: var(--primary);"></div>
+                <div class="meta-chip-dot"></div>
                 <span>Conforme RGPD & Bloctel &nbsp;·&nbsp; scripts sur‑mesure.</span>
               </div>
             </div>
@@ -797,7 +795,8 @@
           <aside class="hero-card">
             <div class="hero-card-inner">
               <div class="logo-large">
-                <img src="ChatGPT-Image-6-mai-2026-14_50_36.jpg" alt="ALYA logo" />
+                <!-- Même nom que ci-dessus -->
+                <img src="alya-logo.png" alt="Logo ALYA" />
               </div>
               <div class="hero-card-title">Votre solution, notre priorité</div>
               <div class="hero-card-main">
