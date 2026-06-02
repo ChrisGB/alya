@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>ALYA - Centre d'appels B2B premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ALYA, centre d'appels B2B premium basé à Strasbourg. Prospection, prise de rendez-vous qualifiés, fidélisation et recouvrement amiable pour PME et ETI." />
+
+  <style>
+    :root {
+      --bg-main: #05070b;
+      --bg-alt: #0b1018;
+      --primary: #00e0d6;
+      --primary-soft: rgba(0, 224, 214, 0.18);
+      --accent: #2bb1ff;
+      --text-main: #f5f7fb;
+      --text-muted: #a4afc3;
+      --border-subtle: #182130;
+      --danger: #ff4d6a;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --shadow-chip: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0c1724 0%, #05070b 55%, #020308 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5,7,11,0.96) 60%, rgba(5,7,11,0.75) 100%);
+      border-bottom: 1px solid rgba(40, 55, 80, 0.65);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      padding: 6px;
+      background: radial-gradient(circle at 30% 0, #00f6ff 0, #0077ff 40%, #05070b 100%);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 650;
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding: 6px 0;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 550;
+      cursor: pointer;
+      background: none;
+      color: var(--text-main);
+      transition: all 0.18s ease-out;
+      box-shadow: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #020308;
+      border-color: rgba(0, 0, 0, 0.8);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 70px rgba(0, 160, 200, 0.45);
+    }
+
+    .btn-ghost {
+      border-color: rgba(81, 103, 142, 0.8);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.09), rgba(3,6,12,0.9));
+      color: var(--text-muted);
+      box-shadow: var(--shadow-chip);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* HERO */
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 224, 214, 0.36);
+      background: radial-gradient(circle at top left, rgba(0, 224, 214, 0.15), rgba(5,7,11,0.92));
+      color: var(--primary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-chip);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+      box-shadow: 0 0 10px rgba(0, 224, 214, 0.7);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note span {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(45, 68, 104, 0.9);
+      background: rgba(6, 10, 18, 0.96);
+      box-shadow: var(--shadow-chip);
+    }
+
+    .meta-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* HERO CARD RIGHT */
+
+    .hero-card {
+      background: radial-gradient(circle at top, #101a26, #05070b);
+      border-radius: 24px;
+      padding: 20px 20px 18px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background: radial-gradient(circle at 10% -10%, rgba(0, 224, 214, 0.16), transparent 62%);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-large {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-large img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 48px rgba(0, 224, 214, 0.45));
+    }
+
+    .hero-card-title {
+      text-align: center;
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-main {
+      text-align: center;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-main span {
+      color: var(--primary);
+    }
+
+    .hero-card-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(93, 117, 158, 0.8), transparent);
+      margin: 14px 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(63, 88, 132, 0.9);
+      background: linear-gradient(to bottom right, rgba(8,13,24,0.96), rgba(3,6,12,0.98));
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+      font-weight: 550;
+    }
+
+    .stat-value span {
+      color: var(--primary);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .hero-card-footnote {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-footnote span {
+      color: var(--primary);
+    }
+
+    .hero-badge-secure {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 224, 214, 0.35);
+      font-size: 0.72rem;
+      background: radial-gradient(circle at top left, rgba(0,224,214,0.16), rgba(5,7,11,0.96));
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 36px 0;
+      border-top: 1px solid rgba(24, 33, 48, 0.9);
+    }
+
+    .section-header {
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* BENEFITS */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .benefit {
+      padding: 14px 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.03), rgba(5,7,11,0.98));
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      font-size: 0.85rem;
+    }
+
+    .benefit-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      background: radial-gradient(circle at top, var(--primary), var(--accent));
+      color: #020308;
+      font-size: 0.78rem;
+      box-shadow: 0 12px 26px rgba(0, 224, 214, 0.5);
+    }
+
+    .benefit-title {
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+
+    .benefit-text {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      font-size: 0.84rem;
+    }
+
+    .service {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(0, 224, 214, 0.06), rgba(5,7,11,0.98));
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+    }
+
+    .service-name {
+      font-weight: 550;
+      margin-bottom: 6px;
+    }
+
+    .service-text {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      font-size: 0.84rem;
+    }
+
+    .step {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.03), rgba(5,7,11,0.98));
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      position: relative;
+    }
+
+    .step-number {
+      font-size: 0.78rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .step-title {
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* CONTACT / CTA SECTION */
+
+    .contact-card {
+      margin-top: 8px;
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(0,224,214,0.4);
+      background: radial-gradient(circle at top, rgba(0,224,214,0.14), rgba(5,7,11,0.98));
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-left-title {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-left-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-mini span {
+      color: var(--primary);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      color: var(--text-muted);
+    }
+
+    input, textarea {
+      background: rgba(3,6,12,0.96);
+      border-radius: 10px;
+      border: 1px solid rgba(61, 82, 122, 0.95);
+      padding: 8px 10px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color 0.16s ease-out, box-shadow 0.16s ease-out, background 0.16s ease-out;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(0, 224, 214, 0.6);
+      background: rgba(3,8,16,0.98);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .form-note span {
+      color: var(--primary);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(24, 33, 48, 0.9);
+      padding: 18px 0 28px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .container {
+        padding-inline: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .benefits-grid,
+      .services-grid,
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-stats {
+        flex-direction: column;
+      }
+
+      .field-row {
+        flex-direction: column;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-logo">
+            <!-- Remplace src par le chemin réel de ton image -->
+            <img src="ChatGPT-Image-6-mai-2026-14_50_36.jpg" alt="Logo ALYA" />
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">ALYA</div>
+            <div class="brand-tagline">Votre solution, notre priorité</div>
+          </div>
+        </div>
+
+        <div class="nav-cta">
+          <nav>
+            <a href="#services">Services</a>
+            <a href="#process">Méthode</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <a href="#contact" class="btn btn-primary">Planifier un diagnostic</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <div class="badge-dot"></div>
+              <span>Centre d'appels B2B premium &nbsp;·&nbsp; Strasbourg</span>
+            </div>
+
+            <h1 class="hero-title">
+              Plus de rendez-vous <span>qualifiés</span><br />
+              sans recruter un seul commercial de plus.
+            </h1>
+
+            <p class="hero-subtitle">
+              ALYA accompagne les PME, ETI et acteurs du secteur automobile à transformer leurs leads et leurs portefeuilles clients en chiffre d’affaires supplémentaire, avec une équipe de téléprospection 100&nbsp;% France.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Planifier un diagnostic de 30&nbsp;minutes</a>
+              <a href="#services" class="btn btn-ghost">Découvrir nos services</a>
+            </div>
+
+            <p class="hero-note">
+              <span>Diagnostic offert</span> &nbsp;·&nbsp; aucun engagement &nbsp;·&nbsp; rapport d’opportunités concret.
+            </p>
+
+            <div class="hero-meta">
+              <div class="meta-chip">
+                <div class="meta-chip-dot"></div>
+                <span>Spécialisation : B2B et secteur automobile (grossistes, garagistes, fournisseurs).</span>
+              </div>
+              <div class="meta-chip">
+                <div class="meta-chip-dot" style="background: var(--primary);"></div>
+                <span>Conforme RGPD & Bloctel &nbsp;·&nbsp; scripts sur‑mesure.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-inner">
+              <div class="logo-large">
+                <img src="ChatGPT-Image-6-mai-2026-14_50_36.jpg" alt="ALYA logo" />
+              </div>
+              <div class="hero-card-title">Votre solution, notre priorité</div>
+              <div class="hero-card-main">
+                Une équipe <span>B2B</span> dédiée à vos rendez‑vous commerciaux.
+              </div>
+
+              <div class="hero-card-divider"></div>
+
+              <div class="hero-stats">
+                <div class="stat">
+                  <div class="stat-label">Formule forfait</div>
+                  <div class="stat-value">
+                    À partir de <span>6&nbsp;000&nbsp;€ HT</span><br />/ mois
+                  </div>
+                </div>
+                <div class="stat">
+                  <div class="stat-label">Formule au succès</div>
+                  <div class="stat-value">
+                    <span>150&nbsp;€</span> par rendez‑vous<br />qualifié
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                <div class="hero-card-footnote">
+                  Choisissez le modèle adapté à votre stratégie : <span>volume de RDV</span> ou <span>maîtrise du risque</span>.
+                </div>
+                <div class="hero-badge-secure">
+                  <span style="font-size: 0.9rem;">✔</span>
+                  <span>Contrat clair & transparent</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section id="benefits">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Pourquoi ALYA</div>
+            <h2 class="section-title">Un partenaire de croissance, pas un simple plateau d’appels.</h2>
+            <p class="section-desc">
+              Vous gardez vos équipes commerciales concentrées sur les rendez‑vous et la signature, nous gérons la prospection, la relance et la qualification avec une approche premium orientée résultat.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit">
+              <div class="benefit-icon">↑</div>
+              <div class="benefit-title">Plus de rendez‑vous qualifiés</div>
+              <div class="benefit-text">
+                Pipelines remplis par des rendez‑vous réellement exploitables pour vos commerciaux terrain, avec des critères de qualification définis ensemble.
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">🇫🇷</div>
+              <div class="benefit-title">Équipe 100&nbsp;% France</div>
+              <div class="benefit-text">
+                Téléopérateurs basés à Strasbourg, francophones natifs, formés à la prospection B2B exigeante et au respect de votre image de marque.
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">⚙</div>
+              <div class="benefit-title">Scripts & ciblage sur‑mesure</div>
+              <div class="benefit-text">
+                Prise en compte de vos offres, de vos personas et de votre cycle de vente pour maximiser la pertinence de chaque appel sortant.
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">📊</div>
+              <div class="benefit-title">Reporting transparent</div>
+              <div class="benefit-text">
+                Suivi clair : volumes d’appels, taux de prise de rendez‑vous, motifs de refus, opportunités détectées pour ajuster en continu.
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">🛡</div>
+              <div class="benefit-title">Conformité maîtrisée</div>
+              <div class="benefit-text">
+                Respect strict des règles de prospection B2B, du RGPD et de Bloctel, avec documentation des consentements et scripts validés.
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">🤝</div>
+              <div class="benefit-title">Relation long terme</div>
+              <div class="benefit-text">
+                Travail main dans la main avec vos équipes marketing et commerciales, ajustements réguliers des campagnes selon vos objectifs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Services</div>
+            <h2 class="section-title">Tout ce dont vous avez besoin pour alimenter vos équipes en opportunités.</h2>
+            <p class="section-desc">
+              Nos prestations se concentrent sur quatre leviers essentiels pour développer votre chiffre d’affaires sans alourdir votre organisation interne.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <div class="service">
+              <div class="service-name">Prospection & prise de RDV</div>
+              <div class="service-text">
+                Campagnes de prospection ciblées vers vos personas prioritaires, qualification approfondie et prise de rendez‑vous directement dans les agendas de vos commerciaux.
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-name">Relance de leads & devis</div>
+              <div class="service-text">
+                Relance systématique des leads entrants, formulaires, téléchargements de livres blancs et devis en attente pour éviter de laisser dormir des opportunités chaudes.
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-name">Fidélisation & réactivation</div>
+              <div class="service-text">
+                Appels de suivi, enquêtes de satisfaction et campagnes de réactivation sur votre base clients pour augmenter la valeur de chaque compte.
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-name">Recouvrement amiable</div>
+              <div class="service-text">
+                Relances amiables structurées pour accélérer les encaissements tout en préservant la relation commerciale avec vos clients.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Méthode</div>
+            <h2 class="section-title">Une démarche simple, structurée et mesurable.</h2>
+            <p class="section-desc">
+              De l’audit de votre pipeline à la production en continu, chaque étape est pensée pour sécuriser vos résultats et limiter votre risque.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <div class="step">
+              <div class="step-number">Étape 1</div>
+              <div class="step-title">Diagnostic & objectifs</div>
+              <div class="step-text">
+                30 minutes pour comprendre votre offre, vos personas, vos cycles de vente et définir ensemble des objectifs réalistes de rendez‑vous.
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">Étape 2</div>
+              <div class="step-title">Ciblage & scripts</div>
+              <div class="step-text">
+                Construction des fichiers cibles, validation des scripts d’appels et des critères de qualification, paramétrage des reportings.
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">Étape 3</div>
+              <div class="step-title">Lancement des campagnes</div>
+              <div class="step-text">
+                Démarrage des appels, prise de rendez‑vous, remontée des informations clés à vos équipes commerciales en temps quasi réel.
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">Étape 4</div>
+              <div class="step-title">Optimisation continue</div>
+              <div class="step-text">
+                Points réguliers pour ajuster messages, ciblage et volumes d’appels en fonction des résultats et de votre planning commercial.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / CTA -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Planifiez votre diagnostic gratuit de 30 minutes.</h2>
+            <p class="section-desc">
+              Expliquez‑nous votre contexte et vos objectifs, nous vous présentons un plan d’action concret et un ordre de grandeur sur le potentiel de rendez‑vous générables.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-left-title">Un échange direct avec un expert B2B, pas un script automatisé.</div>
+              <p class="contact-left-text">
+                Le diagnostic se fait en visio ou par téléphone, avec un chargé de mission B2B capable de challenger vos personas, vos offres et vos objectifs commerciaux.
+              </p>
+              <div class="contact-mini">
+                <div>Basé à <span>Strasbourg</span> · France</div>
+                <div>Spécialisation <span>B2B & secteur auto</span></div>
+                <div>Formule forfait ou <span>au succès</span></div>
+              </div>
+            </div>
+
+            <form class="contact-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="name">Nom & prénom</label>
+                  <input id="name" type="text" placeholder="Christophe Dupont" />
+                </div>
+                <div class="field">
+                  <label for="company">Entreprise</label>
+                  <input id="company" type="text" placeholder="Nom de votre société" />
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">Email professionnel</label>
+                  <input id="email" type="email" placeholder="vous@entreprise.com" />
+                </div>
+                <div class="field">
+                  <label for="phone">Téléphone</label>
+                  <input id="phone" type="tel" placeholder="+33 6 12 34 56 78" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Parlez‑nous de vos besoins</label>
+                <textarea id="message" placeholder="Ex : volume de leads actuel, nombre de commerciaux, objectifs de rendez‑vous par mois…"></textarea>
+              </div>
+
+              <div class="form-footer">
+                <div class="form-note">
+                  En envoyant ce formulaire, vous acceptez que ALYA vous recontacte pour organiser un appel de diagnostic. <span>Aucune prospection non sollicitée.</span>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Envoyer ma demande
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> ALYA · Centre d'appels B2B premium</div>
+        <div class="footer-links">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
